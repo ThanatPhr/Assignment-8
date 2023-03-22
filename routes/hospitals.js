@@ -5,6 +5,7 @@ const {
   getHospital,
   deleteHospital,
   updateHospital,
+  getVacCenters,
 } = require("../controller/hospitals");
 
 const appointmentRouter = require("./appointments");
@@ -15,6 +16,7 @@ const { protect, authorize } = require("../middleware/auth");
 
 router.use("/:hospitalId/appointments", appointmentRouter);
 
+router.route("/vacCenters").get(getVacCenters);
 router
   .route("/")
   .get(getHospitals)
